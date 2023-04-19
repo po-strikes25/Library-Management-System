@@ -12,6 +12,8 @@ import com.example.LibraryManagementSystem.repository.CardRepository;
 import com.example.LibraryManagementSystem.repository.TransactionRepository;
 import com.example.LibraryManagementSystem.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -27,6 +29,9 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Autowired
     TransactionRepository transactionRepository;
+
+    @Autowired
+    private JavaMailSender emailSender;
 
     @Override
     public IssueBookResponseDTO issueBook(IssueBookRequestDTO issueBookRequestDTO) {
@@ -87,9 +92,20 @@ public class TransactionServiceImpl implements TransactionService {
         issueBookResponseOutput.setTransaction_status(transaction.getTransaction_status());
         issueBookResponseOutput.setTransaction_no(transaction.getTransaction_no());
 
+        // Sending email to the issuer :
+
+        String text = "Congrats!" + card.getStudent().getName() + "You have been issued the book" + book.getTitle();
+
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("noreply@baeldung.com");
+        message.setTo(card.getStudent().getMob_no());
+        message.setSubject("Issue Book");
+        message.setText(text);
+        emailSender.send(message);
+
         return issueBookResponseOutput;
     }
 
-    // 1. Return Book API
+    // 2. Return Book API
 
 }

@@ -22,7 +22,7 @@ public class Student {
 
     private int age;
 
-    private int mob_no;
+    private String mob_no;
 
     @Enumerated(EnumType.STRING)
     private Department dept;

@@ -16,7 +16,7 @@ public class TransactionController {
     @Autowired
     TransactionService transactionService;
 
-    @PostMapping("/add-transaction")
+    @PostMapping("/issue")
     public IssueBookResponseDTO issueBook(@RequestBody IssueBookRequestDTO issueBookRequestDTO){
         return transactionService.issueBook(issueBookRequestDTO);
     }
