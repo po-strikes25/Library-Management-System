@@ -1,13 +1,14 @@
 package com.example.LibraryManagementSystem.controller;
 
+import com.example.LibraryManagementSystem.DTO.RequestDTO.StudentRequestDTO;
+import com.example.LibraryManagementSystem.DTO.RequestDTO.UpdateStudentMobileRequestDTO;
+import com.example.LibraryManagementSystem.DTO.ResponseDTO.UpdateStudentMobileResponseDTO;
 import com.example.LibraryManagementSystem.entity.Student;
+import com.example.LibraryManagementSystem.exceptions.StudentNotFoundException;
 import com.example.LibraryManagementSystem.service.StudentService;
 import com.example.LibraryManagementSystem.service.impl.StudentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/student")
@@ -20,12 +21,22 @@ public class StudentController {
     StudentService studentService;
 
     @PostMapping("/add-student")
-    public String addStudent(@RequestBody Student student) {
-        return studentService.addStudent(student);
+    public String addStudent(@RequestBody StudentRequestDTO studentRequestDTO) {
+        return studentService.addStudent(studentRequestDTO);
+    }
+
+    @PutMapping("/update-mobile")
+    public UpdateStudentMobileResponseDTO updateMobile(@RequestBody UpdateStudentMobileRequestDTO updateStudentMobile) throws StudentNotFoundException {
+        return studentService.updateMobile(updateStudentMobile);
     }
 
     // 1. deleteStudentById ;
     // 2. updateStudentById ;
     // 3. findStudentById ;
+    @GetMapping("/get-student")
+    public Student getStudentById(@RequestParam("id") int id){
+        return studentService.getStudentById(id);
+    }
+
     // 4. findAllStudents ;
 }

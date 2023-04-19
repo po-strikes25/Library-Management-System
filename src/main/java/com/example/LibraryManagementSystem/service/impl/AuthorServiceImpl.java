@@ -1,10 +1,13 @@
 package com.example.LibraryManagementSystem.service.impl;
 
+import com.example.LibraryManagementSystem.DTO.ResponseDTO.AuthorResponseDTO;
 import com.example.LibraryManagementSystem.entity.Author;
 import com.example.LibraryManagementSystem.repository.AuthorRepository;
 import com.example.LibraryManagementSystem.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class AuthorServiceImpl implements AuthorService {
@@ -16,5 +19,17 @@ public class AuthorServiceImpl implements AuthorService {
     public String addAuthor(Author author) {
         authorRepository.save(author);
         return "Author Added";
+    }
+
+    @Override
+    public AuthorResponseDTO getAuthorByEmail(String author_email) {
+        Author authors = authorRepository.findByEmail(author_email);
+
+        // Preparing ResponseDTO here :
+        AuthorResponseDTO authorResponseOutput = new AuthorResponseDTO();
+        authorResponseOutput.setName(authors.getName());
+        authorResponseOutput.setAge(authors.getAge());
+
+        return authorResponseOutput;
     }
 }
