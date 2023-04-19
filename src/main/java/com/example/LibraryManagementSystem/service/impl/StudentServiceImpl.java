@@ -2,6 +2,8 @@ package com.example.LibraryManagementSystem.service.impl;
 
 import com.example.LibraryManagementSystem.DTO.RequestDTO.StudentRequestDTO;
 import com.example.LibraryManagementSystem.DTO.RequestDTO.UpdateStudentMobileRequestDTO;
+import com.example.LibraryManagementSystem.DTO.ResponseDTO.CardResponseDTO;
+import com.example.LibraryManagementSystem.DTO.ResponseDTO.StudentResponseDTO;
 import com.example.LibraryManagementSystem.DTO.ResponseDTO.UpdateStudentMobileResponseDTO;
 import com.example.LibraryManagementSystem.entity.Card;
 import com.example.LibraryManagementSystem.entity.Student;
@@ -77,9 +79,28 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student getStudentById(int id) throws StudentNotFoundException {
+    public StudentResponseDTO getStudentById(int id) throws StudentNotFoundException {
         try {
-            return studentRepository.findById(id).get();
+            Student student = studentRepository.findById(id).get();
+
+            // Preparing Response DTO here ;
+            StudentResponseDTO studentResponseOutput = new StudentResponseDTO();
+            studentResponseOutput.setId(student.getId());
+            studentResponseOutput.setName(student.getName());
+            studentResponseOutput.setMob_no(student.getMob_no());
+            studentResponseOutput.setDept(student.getDept());
+            studentResponseOutput.setAge(student.getAge());
+
+            CardResponseDTO cardResponseOutput = new CardResponseDTO();
+            cardResponseOutput.setId(student.getId());
+            cardResponseOutput.setIssue_date(student.getCard().getIssue_date());
+            cardResponseOutput.setStatus(student.getCard().getStatus());
+            cardResponseOutput.setValidity(student.getCard().getValidity());
+            cardResponseOutput.setUpdatedOn(student.getCard().getUpdatedOn());
+
+            studentResponseOutput.setCardDTO(cardResponseOutput);
+
+            return studentResponseOutput;
         } catch (RuntimeException e) {
             throw new StudentNotFoundException("Student Not Found");
         }

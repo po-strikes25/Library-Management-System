@@ -2,6 +2,7 @@ package com.example.LibraryManagementSystem.service;
 
 import com.example.LibraryManagementSystem.DTO.RequestDTO.StudentRequestDTO;
 import com.example.LibraryManagementSystem.DTO.RequestDTO.UpdateStudentMobileRequestDTO;
+import com.example.LibraryManagementSystem.DTO.ResponseDTO.StudentResponseDTO;
 import com.example.LibraryManagementSystem.DTO.ResponseDTO.UpdateStudentMobileResponseDTO;
 import com.example.LibraryManagementSystem.entity.Student;
 import com.example.LibraryManagementSystem.exceptions.StudentNotFoundException;
@@ -12,5 +13,5 @@ public interface StudentService {
 
     public UpdateStudentMobileResponseDTO updateMobile(UpdateStudentMobileRequestDTO updateStudentMobile) throws StudentNotFoundException;
 
-    public Student getStudentById(int id) throws StudentNotFoundException;
+    public StudentResponseDTO getStudentById(int id) throws StudentNotFoundException;
 }

@@ -2,6 +2,7 @@ package com.example.LibraryManagementSystem.controller;
 
 import com.example.LibraryManagementSystem.DTO.RequestDTO.StudentRequestDTO;
 import com.example.LibraryManagementSystem.DTO.RequestDTO.UpdateStudentMobileRequestDTO;
+import com.example.LibraryManagementSystem.DTO.ResponseDTO.StudentResponseDTO;
 import com.example.LibraryManagementSystem.DTO.ResponseDTO.UpdateStudentMobileResponseDTO;
 import com.example.LibraryManagementSystem.entity.Student;
 import com.example.LibraryManagementSystem.exceptions.StudentNotFoundException;
@@ -36,7 +37,7 @@ public class StudentController {
 
     // Getting StackOverFlowError by using this API !!!! DTO required here !!!
     @GetMapping("/get-student")
-    public Student getStudentById(@RequestParam("id") int id) throws StudentNotFoundException {
+    public StudentResponseDTO getStudentById(@RequestParam("id") int id) throws StudentNotFoundException {
         return studentService.getStudentById(id);
     }
 
