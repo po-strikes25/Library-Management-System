@@ -2,6 +2,7 @@ package com.example.LibraryManagementSystem.service.impl;
 
 import com.example.LibraryManagementSystem.DTO.ResponseDTO.AuthorResponseDTO;
 import com.example.LibraryManagementSystem.entity.Author;
+import com.example.LibraryManagementSystem.exceptions.AuthorNotFoundException;
 import com.example.LibraryManagementSystem.repository.AuthorRepository;
 import com.example.LibraryManagementSystem.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,14 +23,22 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public AuthorResponseDTO getAuthorByEmail(String author_email) {
-        Author authors = authorRepository.findByEmail(author_email);
+    public AuthorResponseDTO getAuthorByEmail(String author_email) throws AuthorNotFoundException {
 
-        // Preparing ResponseDTO here :
-        AuthorResponseDTO authorResponseOutput = new AuthorResponseDTO();
-        authorResponseOutput.setName(authors.getName());
-        authorResponseOutput.setAge(authors.getAge());
+        Author authors;
+        try {
+            // Critical statement ;
+            authors = authorRepository.findByEmail(author_email);
 
-        return authorResponseOutput;
+            // Preparing ResponseDTO here :
+            AuthorResponseDTO authorResponseOutput = new AuthorResponseDTO();
+            authorResponseOutput.setName(authors.getName());
+            authorResponseOutput.setAge(authors.getAge());
+
+            return authorResponseOutput;
+
+        } catch (RuntimeException e) {
+            throw new AuthorNotFoundException("Author Not Found");
+        }
     }
 }

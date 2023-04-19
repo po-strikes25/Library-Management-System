@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface StudentService {
     public String addStudent(StudentRequestDTO studentRequestDTO);
 
-    public UpdateStudentMobileResponseDTO updateMobile(UpdateStudentMobileRequestDTO updateStudetnMobile) throws StudentNotFoundException;
+    public UpdateStudentMobileResponseDTO updateMobile(UpdateStudentMobileRequestDTO updateStudentMobile) throws StudentNotFoundException;
 
-    public Student getStudentById(int id);
+    public Student getStudentById(int id) throws StudentNotFoundException;
 }

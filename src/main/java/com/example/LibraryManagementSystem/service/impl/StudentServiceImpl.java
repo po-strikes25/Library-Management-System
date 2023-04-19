@@ -58,10 +58,8 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public UpdateStudentMobileResponseDTO updateMobile(UpdateStudentMobileRequestDTO updateStudentMobile) throws StudentNotFoundException {
-
         try {
             Student student = studentRepository.findById(updateStudentMobile.getId()).get();
-
             // In-place updation ;
             student.setMob_no(updateStudentMobile.getMobile_no());
             Student updatedStudent = studentRepository.save(student);
@@ -73,13 +71,17 @@ public class StudentServiceImpl implements StudentService {
 
             return updatedStudentOutput;
 
-        } catch(Exception e) {
+        } catch(RuntimeException e) {
             throw new StudentNotFoundException("Invalid Student ID");
         }
     }
 
     @Override
-    public Student getStudentById(int id) {
-        return studentRepository.findById(id).get();
+    public Student getStudentById(int id) throws StudentNotFoundException {
+        try {
+            return studentRepository.findById(id).get();
+        } catch (RuntimeException e) {
+            throw new StudentNotFoundException("Student Not Found");
+        }
     }
 }

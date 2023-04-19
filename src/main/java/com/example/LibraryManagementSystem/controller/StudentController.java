@@ -33,8 +33,10 @@ public class StudentController {
     // 1. deleteStudentById ;
     // 2. updateStudentById ;
     // 3. findStudentById ;
+
+    // Getting StackOverFlowError by using this API !!!! DTO required here !!!
     @GetMapping("/get-student")
-    public Student getStudentById(@RequestParam("id") int id){
+    public Student getStudentById(@RequestParam("id") int id) throws StudentNotFoundException {
         return studentService.getStudentById(id);
     }
 
