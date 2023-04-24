@@ -62,8 +62,8 @@ public class StudentServiceImpl implements StudentService {
     public UpdateStudentMobileResponseDTO updateMobile(UpdateStudentMobileRequestDTO updateStudentMobile) throws StudentNotFoundException {
         try {
             Student student = studentRepository.findById(updateStudentMobile.getId()).get();
-            // In-place updation ;
-            student.setMob_no(updateStudentMobile.getMobile_no());
+            // In-place updation - careful with String type returns :
+            student.setMob_no(String.valueOf(updateStudentMobile.getMobile_no()));
             Student updatedStudent = studentRepository.save(student);
 
             // Preparing Response DTO here ;

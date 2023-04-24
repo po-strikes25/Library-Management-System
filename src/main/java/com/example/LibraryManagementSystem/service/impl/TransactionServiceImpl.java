@@ -31,7 +31,7 @@ public class TransactionServiceImpl implements TransactionService {
     TransactionRepository transactionRepository;
 
     @Autowired
-    private JavaMailSender emailSender;
+    JavaMailSender emailSender;
 
     @Override
     public IssueBookResponseDTO issueBook(IssueBookRequestDTO issueBookRequestDTO) {
@@ -97,7 +97,7 @@ public class TransactionServiceImpl implements TransactionService {
         String text = "Congrats!" + card.getStudent().getName() + "You have been issued the book" + book.getTitle();
 
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("noreply@baeldung.com");
+        message.setFrom("rue.eun.woo.26@gmail.com");
         message.setTo(card.getStudent().getMob_no());
         message.setSubject("Issue Book");
         message.setText(text);

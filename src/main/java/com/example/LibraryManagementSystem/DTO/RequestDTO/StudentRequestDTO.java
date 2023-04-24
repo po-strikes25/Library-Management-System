@@ -16,7 +16,7 @@ public class StudentRequestDTO {
 
     private int age;
 
-    private int mob_no;
+    private String mob_no;
 
     private Department dept;
 }

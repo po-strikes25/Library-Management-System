@@ -32,6 +32,7 @@
 <!--			<scope>runtime</scope>-->
 <!--		</dependency>-->
 		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
@@ -56,6 +57,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>javax.mail</groupId>-->
+<!--			<artifactId>mail</artifactId>-->
+<!--			<version>1.4.7</version>-->
+<!--		</dependency>-->
 	</dependencies>
 	<build>
 		<plugins>

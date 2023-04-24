@@ -11,5 +11,5 @@ import lombok.Setter;
 @Setter
 public class UpdateStudentMobileResponseDTO {
     private String name;
-    private int mobile_No;
+    private String mobile_No;
 }
