@@ -19,15 +19,27 @@ Tech Stack utilised in the building of this project are as follows :
 
 **CRUD ops** : To update data in DB using JPA/Hibernate (ORM) and verification via hardcoded SQL queries.
 
-*Additional* : DBeaver used for visual representation of database
+**Client** : DBeaver used for visual representation of database
 
-<h2 align="left"> Build UI : Swagger </h2>
+<h2 align="left"> Port and Configuration </h2>
 
 Run the application on Port : 8080 
 
 The project can be viewed by accessing the url : [Library-Management-System](http://localhost:8080/swagger-ui/index.html  "Library-Management-System")
 
 > In case the application is run on a different port, the new-port has to be reflected in the above url as well.
+
+**Configuration for PostgreSQL** : Incorporate the below code in application.properties
+
+> spring.datasource.url = jdbc:postgresql://localhost:5432/database_name?createTableIfNotExists=true
+
+> spring.datasource.username = postgres
+
+> spring.datasource.password = <enter_your_password>
+
+> spring.datasource.driver-class-name = org.postgresql.Driver
+
+> spring.jpa.hibernate.ddl-auto = update
 
 <h2 align="left"> Database Schema </h2>
 
@@ -37,6 +49,18 @@ White small squares : _Parent_
 
 Dark solid circle : _Child_
 
-<img width="536" alt="image" src="https://github.com/po-strikes25/Library-Management-System/blob/master/src/main/java/com/example/LibraryManagementSystem/images/ER_diagram_lms_april.png">
+<p align="center"> 
+    <img width="536" alt="image" src="https://github.com/po-strikes25/Library-Management-System/blob/master/src/main/java/com/example/LibraryManagementSystem/images/ER_diagram_lms_april.png">
+</p>
 
+<h2 align="left"> Swagger </h2>
 
+Swagger is used to build, document, test and consume the APIs created for this project. Swagger primarily helps to design, document and manage these APIs.
+
+<h3 align="center"> HomePage </h3>
+
+To access the project in a browser hit this url post running the Spring Boot application : http://localhost:8080/swagger-ui/index.html
+
+<p align="center"> 
+    <img width="536" alt="image" src="https://github.com/po-strikes25/Library-Management-System/blob/master/src/main/java/com/example/LibraryManagementSystem/images/swagger-ui.png">
+</p>
