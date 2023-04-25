@@ -9,9 +9,17 @@ Tech Stack utilised in the building of this project are as follows :
 *  _SQL_ 
 *  _REST API's_ 
 
-The project focuses on showcasing expertise in modern industry-level framewok and software development techniques. RESTFull API's created for creation and updating of library card of a particular student and issues and returns of a book represented in the form of transactions, also a periodic API using "Scheduler" to send Email and SMS to students as reminder for book return.
+<p align="justify"> The project intends to create an easy-to-use Library Management System, wherein *issue* of books, available in the Library, to the students, their *return*, and subsequent management of such data in the form of *transactions* (entity), in the database, is facilitated to the user with much ease. The project utilizes industry-level framewok and software development techniques. </p>
 
-Data Base MySql , data manipulation (CRUD operations) to update data in DB using JPA/Hibernate defined methods and manual SQL queries and used DBeaver for visual representation of database and Swagger as an UI(user Interface).
+<p align="justify"> REST-Full API's are created for creation of library card of a particular student, and its updating based on book issue and returns. Also, an API has been built using "JavaMailSender" to send automatic email to the students upon issuance of books. </p>
+
+**Database** : MySQL
+
+**Project executed in** : MySQL and PostgreSQL
+
+**CRUD ops** : To update data in DB using JPA/Hibernate (ORM) and verification via hardcoded SQL queries.
+
+*Additional* : DBeaver used for visual representation of database
 
 <h2 align="left"> Build UI : Swagger </h2>
 
@@ -29,6 +37,6 @@ White small squares : _Parent_
 
 Dark solid circle : _Child_
 
-<img width="536" alt="image" src=""https://ibb.co/XSK828Z"">
+<img width="536" alt="image" src="https://github.com/po-strikes25/Library-Management-System/blob/master/src/main/java/com/example/LibraryManagementSystem/images/ER_diagram_lms_april.png">
 
 
