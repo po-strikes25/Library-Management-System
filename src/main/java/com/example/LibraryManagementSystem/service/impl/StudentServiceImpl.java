@@ -53,6 +53,8 @@ public class StudentServiceImpl implements StudentService {
         card.setStudent(student);
 
         student.setCard(card);
+
+        // CRUD operation by the repository layer ;
         studentRepository.save(student);
 
         return "Student Added";
