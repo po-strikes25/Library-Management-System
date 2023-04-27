@@ -21,6 +21,22 @@ Tech Stack utilised in the building of this project are as follows :
 
 **Client** : DBeaver used for visual representation of database
 
+<h2 align="left"> Development Stages </h2>
+
+1. *Create a Spring Boot Application*
+
+2. *Project Structure*
+
+3. *Pom Dependencies*
+
+4. *Java Bean - Student.java*
+
+5. *Create REST Controller - StudentController.java*
+
+6. *Run Application - Application.java*
+
+7. *Testing from Postman Client*
+
 <h2 align="left"> Port and Configuration </h2>
 
 Run the application on Port : 8080 
