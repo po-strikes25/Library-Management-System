@@ -1,6 +1,6 @@
 <h1 align="center"> A Library Management System </h1>
 
-The author has design and developed a Library Management System. 
+<p align="justify"> The author has design and developed a Library Management System to keep track of the books available in a library. The system allows registeration of new students so as to issue/return books from the library hassle free. The backend is designed as a <B> Monolithic Architecture </B> with a plurality of nuances as discussed below. </p>
 
 Tech Stack utilised in the building of this project are as follows :
 
@@ -9,7 +9,7 @@ Tech Stack utilised in the building of this project are as follows :
 *  _SQL_ 
 *  _REST API's_ 
 
-<p align="justify"> The project intends to create an easy-to-use Library Management System, wherein *issue* of books, available in the Library, to the students, their *return*, and subsequent management of such data in the form of *transactions* (entity), in the database, is facilitated to the user with much ease. The project utilizes industry-level framewok and software development techniques. </p>
+<p align="justify"> The project intends to create an easy-to-use Library Management System, wherein <B> issue </B> of books, available in the Library, to the students, their <B> return </B>, and subsequent management of such data in the form of <B> transactions </B> (entity), in the database, is facilitated to the user with much ease. The project utilizes industry-level framewok and software development techniques. </p>
 
 <p align="justify"> REST-Full API's are created for creation of library card of a particular student, and its updating based on book issue and returns. Also, an API has been built using "JavaMailSender" to send automatic email to the students upon issuance of books. </p>
 
